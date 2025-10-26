@@ -16,6 +16,11 @@ def list_tasks():
     for i, task in enumerate(tasks, start=1):
         status = "[x]" if task['completed'] else "[ ]"
         print(f"{i}. {status} {task['name']}")
+def delete_task(task_index):
+    """Xóa công việc theo chỉ số (0-based)."""
+    if 0 <= task_index < len(tasks):
+        removed = tasks.pop(task_index)
+        print(f"Đã xóa công việc: {removed['name']}")
 def complete_task(task_index):
     """Đánh dấu công việc là đã hoàn thành."""
     if 0 <= task_index < len(tasks):
